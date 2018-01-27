@@ -1,0 +1,28 @@
+---
+title: "Steam Exploration"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Pulling the data
+
+We'll use the Steam Spy API to get the dataset of all games on Steam and the estimated number of owners for each game.  This site doesn't have a published API client, so we just need to call the data directly. 
+
+```{r}
+library(httr)
+spy_url <-"http://steamspy.com/api.php?request=appdetails&appid=730"
+single_game <- content(GET(url = spy_url))
+```
+
+## Initial Visualization
+
+We'll take a preliminary look at the relationship between reviews and number of owners. 
+
+```{r, echo=FALSE}
+```
+
