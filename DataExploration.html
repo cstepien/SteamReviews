@@ -125,9 +125,19 @@ $(document).ready(function () {
 <div id="pulling-the-data" class="section level2">
 <h2>Pulling the data</h2>
 <p>We’ll use the Steam Spy API to get the dataset of all games on Steam and the estimated number of owners for each game. This site doesn’t have a published API client, so we just need to call the data directly.</p>
+<div id="pulling-data-for-a-single-entry" class="section level3">
+<h3>Pulling data for a single entry</h3>
+<p>This is the data for Counter-Strike: Global Offensive</p>
 <pre class="r"><code>library(httr)
 spy_url &lt;-&quot;http://steamspy.com/api.php?request=appdetails&amp;appid=730&quot;
 single_game &lt;- content(GET(url = spy_url))</code></pre>
+</div>
+<div id="pulling-the-list-of-games" class="section level3">
+<h3>Pulling the list of games</h3>
+<pre class="r"><code>spy_games &lt;- &quot;http://steamspy.com/api.php?request=all&quot;
+game_list &lt;- content(GET(url = spy_games))
+print(object.size(game_list), units = &quot;Mb&quot;)</code></pre>
+</div>
 </div>
 <div id="initial-visualization" class="section level2">
 <h2>Initial Visualization</h2>
